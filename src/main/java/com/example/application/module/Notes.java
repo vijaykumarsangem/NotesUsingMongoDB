@@ -1,6 +1,7 @@
 package com.example.application.module;
 
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -16,7 +17,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "notestest")
+@Document(collection = "crorenotes")
 public class Notes {
 
 	@Transient
@@ -64,10 +65,10 @@ public class Notes {
 	private Double notes39;
 	private Double notes40;
 	private Double notes41;
-	private Timestamp notes42;
-	private Timestamp notes43;
-	private Timestamp notes44;
-	private Timestamp notes45;
+	private Date notes42;
+	private Date notes43;
+	private Date notes44;
+	private Date notes45;
 	private Boolean notes46;
 	private Boolean notes47;
 	private Boolean notes48;
@@ -430,35 +431,35 @@ public class Notes {
 		this.notes41 = notes41;
 	}
 
-	public Timestamp getNotes42() {
+	public Date getNotes42() {
 		return notes42;
 	}
 
-	public void setNotes42(Timestamp notes42) {
+	public void setNotes42(Date notes42) {
 		this.notes42 = notes42;
 	}
 
-	public Timestamp getNotes43() {
+	public Date getNotes43() {
 		return notes43;
 	}
 
-	public void setNotes43(Timestamp notes43) {
+	public void setNotes43(Date notes43) {
 		this.notes43 = notes43;
 	}
 
-	public Timestamp getNotes44() {
+	public Date getNotes44() {
 		return notes44;
 	}
 
-	public void setNotes44(Timestamp notes44) {
+	public void setNotes44(Date notes44) {
 		this.notes44 = notes44;
 	}
 
-	public Timestamp getNotes45() {
+	public Date getNotes45() {
 		return notes45;
 	}
 
-	public void setNotes45(Timestamp notes45) {
+	public void setNotes45(Date notes45) {
 		this.notes45 = notes45;
 	}
 

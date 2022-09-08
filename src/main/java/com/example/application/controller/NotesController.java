@@ -1,8 +1,10 @@
 package com.example.application.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -48,6 +50,12 @@ public class NotesController {
 		return note;
 	}
 	
+	@GetMapping("/getName/{name}")
+	public List<Notes> getNotesByName(@PathVariable("name") String name) {
+		return notesserv.getByName(name);
+	}
+	
+	
 	@GetMapping("/getfields/{note}")
 	private List<Notes> getNotesByFields(@PathVariable("note") String note,@PathVariable("value") String value) {
 		return notesserv.getByFields(note,value);
@@ -60,7 +68,7 @@ public class NotesController {
 //	}
 	
 	@GetMapping("/getfields")
-	public List<Notes> getByFields(@RequestParam(value = "notes1", required = false) String note1,@RequestParam(value = "notes2", required = false) String note2,@RequestParam(value = "notes3", required = false) String note3,@RequestParam(value = "notes4", required = false) String note4) {
+	public List<Notes> getByFields(@RequestParam(value = "notes1", required = false) String note1,@RequestParam(value = "notes18", required = false) Integer note2,@RequestParam(value = "notes21", required = false) Date note3,@RequestParam(value = "notes32", required = false) Long note4) {
 		return filter.findByNotes(note1, note2, note3, note4);
 	}
 	
@@ -84,6 +92,24 @@ public class NotesController {
 	@GetMapping("/getNoteFields")
 	public List<Notes> getByNoteFields(@RequestParam(value = "fields", required = false) String[] fields) {
 		return filter.findByNoteFields(fields);
+	}
+	
+	@PostMapping("/savehundrednotes")
+	public String saveHundred(@RequestBody Notes notes) {
+		notesserv.saveHundredUsers(notes);
+		return "saved a hundred users";
+	}
+	
+	@PostMapping("/savethousandnotes")
+	public String saveThousand(@RequestBody Notes notes) {
+		notesserv.saveThousandUsers(notes);
+		return "saved a thousand users";
+	}
+	
+	@PostMapping("/savetenthousandnotes")
+	public String saveTenThousand(@RequestBody Notes notes) {
+		notesserv.saveTenThousandUsers(notes);
+		return "saved a tenthousand users";
 	}
 	
 }

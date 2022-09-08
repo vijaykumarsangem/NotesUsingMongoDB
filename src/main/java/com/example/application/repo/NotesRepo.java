@@ -21,4 +21,10 @@ public interface NotesRepo extends MongoRepository<Notes, Integer> {
 
 	@Query("{ notes1 : ?0,notes2: ?1,notes3: ?2,notes4 :?3 }")
 	List<Notes> findByDynamicFields(String notes1, String notes2,String notes3,String notes4);
-}
+
+	
+	
+	@Query(value = "{notes1:?0}")
+	public List<Notes> findFieldName(String name);
+	
+}	

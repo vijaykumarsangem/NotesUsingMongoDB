@@ -1,5 +1,6 @@
 package com.example.application.filter;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,7 @@ public class NotesFilter {
 //
 //	}
 
-	public List<Notes> findByNotes(String note1, String note2, String note3, String note4) {
+	public List<Notes> findByNotes(String note1, Integer note2, Date note3, Long note4) {
 
 		Query dynamicQuery = new Query();
 		if (note1 != null) {
@@ -37,18 +38,18 @@ public class NotesFilter {
 			dynamicQuery.addCriteria(nameCriteria);
 		}
 		if (note2 != null) {
-			Criteria phoneCriteria = Criteria.where("notes2").is(note2);
+			Criteria phoneCriteria = Criteria.where("notes18").is(note2);
 			dynamicQuery.addCriteria(phoneCriteria);
 		}
 		if (note3 != null) {
-			Criteria phoneCriteria = Criteria.where("notes3").is(note3);
+			Criteria phoneCriteria = Criteria.where("notes21").is(note3);
 			dynamicQuery.addCriteria(phoneCriteria);
 		}
 		if (note4 != null) {
-			Criteria phoneCriteria = Criteria.where("notes4").is(note4);
+			Criteria phoneCriteria = Criteria.where("notes32").is(note4);
 			dynamicQuery.addCriteria(phoneCriteria);
 		}
-		return mongoTemplate.find(dynamicQuery, Notes.class, "notestest");
+		return mongoTemplate.find(dynamicQuery, Notes.class, "notes");
 	}
 	
 	
@@ -59,7 +60,7 @@ public class NotesFilter {
 			dynamicQuery.fields().include(field);
 		}
 		
-		return mongoTemplate.find(dynamicQuery, Notes.class, "notestest");
+		return mongoTemplate.find(dynamicQuery, Notes.class, "notes");
 	}
 	
 	public List<Notes> findByNoteFields(String[] fields) {
@@ -70,7 +71,7 @@ public class NotesFilter {
 			dynamicQuery.addCriteria(phoneCriteria);
 		}
 		
-		return mongoTemplate.find(dynamicQuery, Notes.class, "notestest");
+		return mongoTemplate.find(dynamicQuery, Notes.class, "notes");
 	}
 
 }
